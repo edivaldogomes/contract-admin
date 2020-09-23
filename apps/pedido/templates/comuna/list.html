@@ -1,0 +1,70 @@
+{% extends 'accounts/home.html' %}
+
+{% block title_action %}Comuna{% endblock %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                {{title}}
+            </h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered" id="example">
+                <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Comuna</th>
+                    <th class="text-center">Municipio</th>
+                    {% if user.is_superuser %}
+                    <th class="text-center">Acciones</th>
+                    {% endif %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for comuna in object_list %}
+                <tr>
+                    <td class="text-center">{{ comuna.id }}</td>
+                    <td class="text-center">{{ comuna.get_comuna_display }}</td>
+                    <td class="text-center">{{ comuna.municipio }}</td>
+
+                    {% if user.is_superuser %}
+                    <td class="text-center" style="width: 100px">
+                        <a class="btn btn-info btn-sm" href="{% url 'pedido:update_comuna' comuna.id %}"
+                           style="border-radius: 30px;">
+                            <i class="icon icon-pencil"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'pedido:delete_comuna' comuna.id %}"
+                           style="border-radius: 30px;">
+                            <i class="icon icon-trash"></i>
+                        </a>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center bg-info-gradient"><strong>Não se registro nenhúma comuna</strong>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'pedido:create_comuna'%}" class="btn btn-primary float-right"><i class="icon icon-plus"></i>
+                Crear Comuna</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrascript %}
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+
+</script>
+{% endblock %}

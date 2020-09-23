@@ -1,0 +1,140 @@
+{% extends 'accounts/home.html' %}
+{% load crispy_forms_tags crispy_forms_filters %}
+
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-header">
+            <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                {{title1}}
+            </h4>
+        </div>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" novalidate="">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.nome_requerente|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.empresa|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.data_nascimento|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.nome_pai|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.nome_mae|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.estado_civil|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.naturalidade|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.bi|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.copia_de_bi|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.passado_bi|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.provincia|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.municipio|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.comuna|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.residencia|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.numero_casa|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.sede|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.email|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form2.telefone|as_crispy_field }}
+                    </div>
+                </div>
+
+                <div class="card-header mb-2">
+                    <h4 class="card-title text-center text-muted">
+                        {{title2}}
+                    </h4>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.projecto|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.localizacao|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.provincia_arquivacao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.comuna|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.municipio|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.quarterao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.pago_apreciado|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4 mb-0">
+                        {{ form.metros|as_crispy_field }}
+                    </div>
+                </div>
+                <hr class="my-2">
+                <div class="actions float-right">
+                    <button type="submit" class="btn btn-success">
+                        <span class="icon icon-save"></span> Guardar
+                    </button>
+                    <a href="{% url 'pedido:listar_legalizar' %}" class="btn btn-info">Cancelar</a>
+                </div>
+            </form>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extrascript %}
+<script>
+    $('.dateinput').attr('type', 'date');
+
+
+
+</script>
+{% endblock %}

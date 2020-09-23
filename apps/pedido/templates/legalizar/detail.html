@@ -1,0 +1,63 @@
+{% extends 'accounts/base.html' %}
+
+{% load crispy_forms_tags crispy_forms_filters %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                Projecto a ser legalizado
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="form-row">            
+                <p class="card-text col-md-6"><strong class="text-info">Projecto:</strong>
+                    {{ object.projecto }}</p>
+                <p class="card-text col-md-6"><strong class="text-info">Localizaçaõ:</strong> {{ object.localizacao }}</p>
+            </div>
+            <div class="form-row">            
+                <p class="card-text col-md-6"><strong class="text-info">Provincia de Arquivação:</strong> {{ object.provincia_arquivacao }}
+                </p>
+                <p class="card-text col-md-6"><strong class="text-info">Quarteirão:</strong>
+                    {{ object.quarterao }}</p>
+            </div>
+            <div class="form-row">            
+                <p class="card-text col-md-6"><strong class="text-info">Comuna:</strong>
+                    {{ object.comuna }}</p>
+                <p class="card-text col-md-6"><strong class="text-info">Data de entrada:</strong>
+                    {{ object.data_entrada }}</p>
+            </div>
+            <div class="form-row">            
+                <p class="card-text col-md-6"><strong class="text-info">Municipio:</strong>
+                    {{ object.municipio }}</p>
+                <p class="card-text col-md-6"><strong class="text-info">Requerente:</strong> {{ object.pessoaEmpresa }} </p>
+            </div>            
+            <div class="form-row">            
+                <p class="card-text col-md-6"><strong class="text-info">Pago de preciação:</strong>
+                    {{ object.pago_apreciado }}</p>
+
+                <p class="card-text col-md-6"><strong class="text-info">Trabalhador que o atendeu:</strong>
+                    {{ object.user }}</p>
+            </div>
+            <div class="form-row">
+                <p class="card-text col-md-6"><strong class="text-info">Extenção da Superficie:</strong>
+                    {{ object.metros }} metros Cuadrados</p>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'pedido:listar_legalizar' %}" style="border-radius: 30px;"class="btn btn-primary" data-toggle="tooltip" title="Atras">
+                    <i class="icon icon-arrow-left"></i>
+                </a>
+                <a href="{% url 'pedido:gerar_pdf' object.pk %}" target="_blank" style="border-radius: 30px;" class="btn btn-info" data-toggle="tooltip" title="Imprimir recibo">
+                <i class="icon icon-file"></i>
+                </a>
+                 <a class="btn btn-success" style="border-radius: 30px;" title="Agregar pagos"href="{% url 'pedido:create_terminado' object.pk %}">
+                    <i class="icon icon-plus"></i>
+                </a>
+            </div>
+        </form>
+    <!-- </div> -->
+    </div>
+</div>
+</div>
+{% endblock %}

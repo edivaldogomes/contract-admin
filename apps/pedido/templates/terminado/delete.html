@@ -1,0 +1,29 @@
+{% extends 'accounts/base.html' %}
+{% block title_action %}Eliminar pago{% endblock %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-body">
+            <h4 class="card-title text-center text-muted mt-3">
+                Estás seguro que desejas eliminar o pago da legalização {{ pagamento.pk}}?
+            </h4>
+        </div>
+        <div class="card-footer">
+            <div class="row justify-content-center">
+                <form method="post" enctype="multipart/form-data" novalidate="">
+                    {% csrf_token %}
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="icon icon-hand-up"></i> Sim, Eliminar
+                        </button>
+                        <a href="{% url 'pedido:listar_terminado' %}" class="btn btn-success">
+                            <i class="icon icon-hand-down"></i>
+                            Não, Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

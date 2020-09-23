@@ -1,0 +1,30 @@
+{% extends 'accounts/home.html' %}
+
+{% block title_action %}Eliminar provincia{% endblock %}
+
+{% block content %}
+    <div class="col-md-12 mb-5">
+        <div class="card h-100">
+          <div class="card-header">
+            <h4 class="card-title text-center text-muted">
+            Estás seguro que desejas eliminar a provincia {{ provincia.get_provincia_display}}?
+        </h4>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-center mt-3">
+                <form method="post" enctype="multipart/form-data" novalidate="">
+                    {% csrf_token %}
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="icon icon-hand-up"></i> Sim, Eliminar
+                        </button>
+                        <a href="{% url 'pedido:listar_provincia' %}" class="btn btn-success">
+                            <i class="icon icon-hand-down"></i>
+                            Não, Voltar</a>
+                    </div>
+                </form>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

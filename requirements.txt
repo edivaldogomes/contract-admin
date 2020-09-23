@@ -1,0 +1,9 @@
+appdirs==1.4.3
+asgiref==3.2.3
+astroid==2.3.3
+autopep8==1.5
+diff-match-patch==20181111
+Django==3.0.3
+django-crispy-forms==1.8.1
+pytz==2019.3
+xhtml2pdf==0.2.3

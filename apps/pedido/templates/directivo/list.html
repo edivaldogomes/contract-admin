@@ -1,0 +1,70 @@
+{% extends 'accounts/home.html' %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                {{title}}
+            </h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered" id="example">
+                <thead>
+                <tr>
+                    <th class="text-center">Nome do Director</th>
+                    <th class="text-center">Data de Nascimento</th>
+                    {% if user.is_superuser %}
+                    <th class="text-center">Acciones</th>
+                    {% endif %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for directivo in object_list %}
+                <tr>
+                    <td class="text-center">{{ directivo.nome_directivo }}</td>
+                    <td class="text-center">{{ directivo.data_nascimento }}</td>
+                    {% if user.is_superuser %}
+                    <td class="text-center" style="width: 100px">
+                        <a class="btn btn-info btn-sm" style="border-radius: 30px;"
+                           href="{% url 'pedido:update_directivo' directivo.pk %}">
+                            <i class="icon icon-pencil"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" style="border-radius: 30px;"
+                           href="{% url 'pedido:delete_directivo' directivo.pk %}">
+                            <i class="icon icon-trash"></i>
+                        </a>
+                    </td>
+                    {% endif %}
+
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="text-center bg-info-gradient"><strong>Não se registro nenhúma processo
+                        terminado</strong></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+         <div class="card-footer">
+            <a href="{% url 'pedido:create_directivo'%}" class="btn btn-primary float-right" style="margin:10px;"><i class="icon icon-plus"></i>
+                Criar Directivo</a>
+             <a href="{% url 'accounts:register'%}" class="btn btn-primary float-right" style="margin:10px;"><i class="icon icon-plus"></i>
+                Criar novo Trabalhador</a>
+             <a href="{% url 'accounts:cambiar_contrasena'%}" class="btn btn-primary float-right" style="margin:10px;"><i class="icon icon-plus"></i>
+                Mudar palavra-passe</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrascript %}
+<script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+
+</script>
+{% endblock %}

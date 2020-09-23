@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{title}}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/business-frontpage.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <style type="text/css">
+        a{border-radius: 30px;}
+    </style>
+</head>
+
+<body>
+{% include 'accounts/navigation.html' %}
+
+<div class="py-5 mb-5" style="background:#760c0c !important;">
+    <img style="width: 100%; height: 400px;" src="{% static './img/BANDEIRA-DE-ANGOLA.jpg' %}">
+</div>
+
+<!-- Page Content -->
+<div class="container-fluid">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- /.container -->
+{% include 'accounts/footer.html' %}
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'datatables/dataTables.bootstrap4.min.js' %}"></script>
+{% block extrascript %}{% endblock %}
+</body>
+
+</html>

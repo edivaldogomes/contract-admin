@@ -1,0 +1,41 @@
+ ✔ Comando+Enter @done (20-06-06 18:42)
+ ☐ Comando+D-Terminar a tarefa
+ ✔ Comando+Alt: Cancelar @done (20-06-06 18:43)
+
+ Hacer Secciones:
+   ☐ Solo com dos puntos
+   ☐ Tarefa 2
+
+Modelo Terreno_Legalizar
+    legalizando
+    localizacao 
+    local_arquivacao
+    provincia_arquivacao
+    quarterao
+    data_entrada
+    comuna
+    municipio
+    pago
+    pessoaEmpresa
+    user
+
+Modelo PessoaEmpresa
+    nome
+    sobrenome
+    data_nascimento
+    nome_pai
+    nome_mae
+    naturalidade
+    bi
+    copia_de_bi blank
+    passado_bi
+    municipio
+    provincia    
+    residencia
+    rua
+    numero_casa
+    # En Caso de una empresa
+    empresa 
+    # Comúm
+    email
+    telefone

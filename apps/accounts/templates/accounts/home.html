@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 mb-3">
+        {% block content_action %}
+        <h4 class="card-title">Gestão da emissão do Titulo De Concessão de Direito a Superficie</h4>
+        <p style="text-align:justify; text-indent:50px;">A Administração Municipal do Namacundi presta o serviço de
+            titulo de concessão de direito a superficie , o mesmo é um serviço governamental de carácter social , é
+            atribuido aos cidadãos maiores de 18 anos, deswtina-se para a legalização de terreno, para recorrer este
+            serviço, o cidadão deve-se fazer acompanhar de uma copia do BI, Crocquis de localização ,requerimento
+            dirigido ao administrador.</p>
+        <p style="text-align:justify;">Actualmente, a gestçao dos titulo de concessão de direito a superficie , é
+            feito por meios analogicos , onde a solicitação é feita em folha de 25 linhas, dirigida ao Administrador
+            Municipal do Cuanhama, provocando demora excessiva para entrega do documento , não existe uma base de
+            dados electrónica lcal ou um sistema que gere a quantidade de titulos de concessão que foram
+            emitidos.</p>
+        {% endblock %}
+    </div>
+</div>
+{% include 'accounts/section.html' %}
+{% endblock %}

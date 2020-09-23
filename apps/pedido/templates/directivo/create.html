@@ -1,0 +1,53 @@
+{% extends 'accounts/home.html' %}
+{% load crispy_forms_tags crispy_forms_filters %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                {{title}}
+            </h4>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" novalidate="">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.nome_directivo|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.data_nascimento|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.empossamento|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.entrega_cargo|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.copia_bi|as_crispy_field }}
+                    </div>
+                </div>
+                <hr class="my-2">
+                <div class="actions float-right">
+                    <button type="submit" class="btn btn-success">
+                    <span class="icon icon-save"></span> Guardar
+                    </button>
+                    <a href="{% url 'pedido:listar_directivo' %}" class="btn btn-info">Cancelar</a>
+                </div>
+        </form>
+    <!-- </div> -->
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block extrascript %}
+<script>
+    $('.dateinput').attr('type', 'date');
+</script>
+{% endblock %}

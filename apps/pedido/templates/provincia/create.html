@@ -1,0 +1,34 @@
+{% extends 'accounts/home.html' %}
+{% load crispy_forms_tags crispy_forms_filters %}
+
+{% block title_action %}Criar provincia{% endblock %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+       <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                {{title}}
+            </h4>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" novalidate="">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form.provincia|as_crispy_field }}
+                    </div>
+                </div>
+                <hr class="my-2">
+                <div class="actions float-right">
+                    <button type="submit" class="btn btn-success">
+                    <span class="icon icon-save"></span> Guardar
+                    </button>
+                    <a href="{% url 'pedido:listar_provincia' %}" class="btn btn-info">Cancelar</a>
+                </div>
+            </form>
+    <!-- </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

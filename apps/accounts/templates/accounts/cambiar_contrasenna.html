@@ -1,0 +1,29 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags crispy_forms_filters %}
+
+{% block title %}Mudar palavra-passe{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <p>Mudar palavra-passe</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="actions float-right">
+                            <button type="submit" class="btn btn-success">
+                                <span class="icon icon-save"></span> Guardar
+                            </button>
+                            <a href="{% url 'pedido:listar_directivo' %}" class="btn btn-info">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

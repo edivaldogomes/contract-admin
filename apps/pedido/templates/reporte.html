@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Recibo</title>
+    <style>
+        .img-invoice{
+    		width: 80px;
+    		text-align: center;
+    		margin: 0 auto;
+    		padding:5px;
+    	}
+    	.head p {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight:bold;
+            margin: 0 auto;
+            font-size:11pt;
+	    }
+	    #title_five{
+	        text-align: center;
+            text-transform: uppercase;
+            margin: 0 auto;
+            font-size:11pt;
+	    }
+        .container p {
+            text-align:justify;
+            text-indent:20px;
+            font-size:11pt;
+            margin-top:40px;
+        }
+        #body_five{
+            text-align:center;
+            font-weight:bold;
+            font-size:11pt;
+            padding-top:100px;
+        }
+        table{
+            margin-top:50px;
+        }
+        th{
+            font-size:10pt;
+            padding:5px;
+        }
+        td{
+            text-align:center;
+            font-size:10pt;
+        }
+    </style>
+</head>
+<body>
+<header class="head">
+    <img src="{{ icon }}" class="img-invoice">
+    <p id="title_one">{{title}}</p>
+    <p id="title_two">{{title_two}}</p>
+    <p id="title_three">{{title_three}}</p>
+    <p id="title_four">{{title_four}}</p>
+</header>
+
+<div>
+    <p id="title_five">{{title_five}}</p>
+</div>
+
+<div class="container">
+    <p id="body_one">{{body}}</p>
+
+    <p id="body_two">{{body_two}}</p>
+
+    <p id="body_three">{{body_three}}</p>
+
+    <p id="body_four">{{body_four}}</p>
+</div>
+<div>
+    <p id="body_five">{{body_five}}</p>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>O(A) Chefe de Secção</th>
+            <th>O Requerente</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>..........................................................</th>
+            <th>..........................................................</th>
+        </tr>
+        <tr>
+            <td>{{director}}</td>
+            <td>{{requerent}}</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+
+
+
+
+<!--    <div id="tit">-->
+<!--        O(A) Chefe de Secção-->
+<!--    </div>-->
+
+<!--    <div id="pts">-->
+<!--        .....................................................................-->
+<!--    </div>-->
+<!--    <div id="dir">-->
+<!--        {{director}}-->
+<!--</div>-->
+</div>
+</body>
+</html>

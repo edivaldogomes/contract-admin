@@ -1,0 +1,68 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+        <div class="card h-100">
+          <div class="card-header">
+               <h4 class="card-title text-center text-muted mt-3">
+                {{title}}
+            </h4>
+          </div>
+
+          <div class="card-body">
+            <table class="table table-bordered" id="example">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-center">Projecto a legalizar</th>
+            <th class="text-center">Localização</th>
+            <th class="text-center">Requerente</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for terreno_legalizar in object_list %}
+        <tr>
+            <td class="text-center">{{ terreno_legalizar.id }}</td>
+            <td class="text-center">{{ terreno_legalizar.projecto }}</td>
+            <td class="text-center">{{ terreno_legalizar.localizacao }}</td>
+            <td class="text-center">{{ terreno_legalizar.pessoaEmpresa }}</td>
+            <td class="text-center" style="width: 100px">
+                <a class="btn btn-info btn-sm" style="border-radius: 30px;" href="{% url 'pedido:update_legalizar' terreno_legalizar.pk %}">
+                    <i class="icon icon-pencil"></i>
+                </a>
+                <a class="btn btn-danger btn-sm" style="border-radius: 30px;" href="{% url 'pedido:delete_legalizar' terreno_legalizar.pk %}">
+                    <i class="icon icon-trash"></i>
+                </a>
+                <a class="btn btn-warning btn-sm" style="border-radius: 30px;" href="{% url 'pedido:detail_legalizar' terreno_legalizar.pk %}">
+                    <i class="icon icon-eye-open"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8" class="text-center bg-info-gradient"><strong>Não se registro nenhúma comuna</strong></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+          </div>
+
+          <div class="card-footer">
+            <a href="{% url 'pedido:create_legalizar' %}" class="btn btn-primary float-right"><i class="icon icon-plus"></i> Legalização Usuario Existente</a>
+          </div>
+        </div>
+      </div>
+{% endblock %}
+
+
+{% block extrascript %}
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+
+
+
+</script>
+{% endblock %}

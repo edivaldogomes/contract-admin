@@ -1,0 +1,73 @@
+{% extends 'accounts/home.html' %}
+{% load crispy_forms_tags crispy_forms_filters %}
+
+{% block content %}
+<div class="col-md-12 mb-5">
+    <div class="card h-100">
+        <div class="card-header">
+            <h4 class="card-title text-center text-muted mt-3">
+                Projecto a ser legalizado
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="form-row">            
+                <p class="card-text col-md-6"><strong class="text-info">Requerente:</strong>
+                    {{ object.projecto_legalizado.pessoaEmpresa.nome_requerente }}</p>
+                <p class="card-text col-md-6"><strong class="text-info">Nome do Projecto:</strong> {{ object.projecto_legalizado }}</p>
+            </div>
+            <div class="form-row">
+                <p class="card-text col-md-6"><strong class="text-info">Parecer do Técnico:</strong>
+                {% if object.parecer_tecnico %}
+                    <a href="{% url 'pedido:pdf' object.pk %}" target="_blank">Parecer do técnico</a>
+                {% else %}
+                    Não foi anexado fichero do parecer técnico
+                {% endif %}
+                </p>
+
+                {% if object.processo_requerente %}
+                <p class="card-text col-md-6"><strong class="text-info">Processo completo do Requerente:</strong>
+                    <a href="{% url 'pedido:pdf' object.pk %}" target="_blank">Processo Completo</a></p>
+                {% else %}
+                    Não foi anexado o fichero do completo do requerente
+                {% endif %}
+            </div>
+            <div class="form-row">
+                 <p class="card-text col-md-6"><strong class="text-info">Primeira Prestação:</strong>
+                    {{ object.primeiro }}</p>
+
+                <p class="card-text col-md-6"><strong class="text-info">Recibo de pago 1ª:</strong>
+                    <a href="{% url 'pedido:pdf' object.pk %}" target="_blank">Recibo primeiro pago</a></p>
+            </div>
+            <div class="form-row">
+
+                <p class="card-text col-md-6"><strong class="text-info">Segunda Pestação:</strong>
+                    {{ object.segundo }}</p>
+                <p class="card-text col-md-6"><strong class="text-info">Recibo de pago 2ª:</strong>
+                    {% if object.recibo_segundo %}
+                    <a href="{% url 'pedido:pdf' object.pk %}" target="_blank">Recibo segundo pago</a>
+                    {% else %}
+                    Não foi anexado o recibo do segundo pago
+                    {% endif %}
+                </p>
+            </div>            
+            <div class="form-row">
+                <p class="card-text col-md-6"><strong class="text-info">Terceira Prestação:</strong> {{ object.terceiro }} </p>
+
+                <p class="card-text col-md-6"><strong class="text-info">Recibo de pago 3ª:</strong>
+                {% if object.recibo_terceiro %}
+                    <a href="{% url 'pedido:pdf' object.pk %}" target="_blank">Recibo terceiro pago</a></p>
+                {% else %}
+                    Não foi anexado o recibo do terceiro pago
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'pedido:listar_legalizar' %}" style="border-radius: 30px;"class="btn btn-primary" data-toggle="tooltip" title="Atras">
+                    <i class="icon icon-arrow-left"></i>
+                </a>
+            </div>
+        </form>
+    <!-- </div> -->
+    </div>
+</div>
+</div>
+{% endblock %}
